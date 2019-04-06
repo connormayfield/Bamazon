@@ -11,14 +11,14 @@ var connection = mySQL.createConnection({
    database: 'bamazonDB'
 });
 
-// connection test
+
 connection.connect(function(err) {
    if (err) throw err;
    console.log("connected as id " + connection.threadId + "\n");
    showStuff();
  });
 
-// display stuff from bamazon database
+
 function showStuff() {
    connection.query("SELECT * FROM products", function(err, res){
        if (err) throw err;
@@ -27,12 +27,11 @@ function showStuff() {
    })
 }
 
-// how many products to buy
+
 function itemPrompt() {
    inquirer
        .prompt([
            {
-           // Pass your questions in here
            type: 'input',
            name: 'itemID',
            message: 'What is the ID of the item you would like to buy? [Quit with Q]',
@@ -113,7 +112,7 @@ function itemPrompt() {
                  })
                })
              }
-                       //else if (err) throw err;
+
 
    function exit() {
      connection.end();
